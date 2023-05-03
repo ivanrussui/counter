@@ -12,6 +12,28 @@ function App() {
   const incrementCount = () => count < 5 && setCount(count + 1)
   const resetCount = () => setCount(0)
 
+  const setToLocalStorageHandler = () => {
+    localStorage.setItem('key', JSON.stringify(count))
+    localStorage.setItem('key + 1', JSON.stringify(count + 1))
+  }
+
+  const getFromLocalStorageHandler = () => {
+    let countAsString = localStorage.getItem('key')
+    if (countAsString) {
+      let newCount = JSON.parse(countAsString)
+      setCount(newCount)
+    }
+  }
+
+  const clearLocalStorageHandler = () => {
+    localStorage.clear()
+    setCount(0)
+  }
+
+  const removeItemLocalStorageHandler = () => {
+    localStorage.removeItem('key + 1')
+  }
+
   return (
       <div className="App">
         <Monitor count={count} />
@@ -20,7 +42,13 @@ function App() {
                  nameInc={nameInc}
                  nameReset={nameReset}
                  count={count}
+                 // setToLocalStorageHandler={setToLocalStorageHandler}
+                 // getFromLocalStorageHandler={getFromLocalStorageHandler}
         />
+        <button onClick={setToLocalStorageHandler}>setToLocalStorage</button>
+        <button onClick={getFromLocalStorageHandler}>getFromLocalStorage</button>
+        <button onClick={clearLocalStorageHandler}>clearLocalStorage</button>
+        <button onClick={removeItemLocalStorageHandler}>removeItemLocalStorage</button>
       </div>
   );
 }

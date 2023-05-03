@@ -6,11 +6,13 @@ type PropsType = {
   nameInc: string
   nameReset: string
   count: number
+  // setToLocalStorageHandler: () => void
+  // getFromLocalStorageHandler: () => void
 }
 
 export const Buttons = ({
                           incrementCount, resetCount,
-                          nameInc, nameReset, count, ...props
+                          nameInc, nameReset, count
                         }: PropsType) => {
 
   const maxCount = count === 5
@@ -18,8 +20,14 @@ export const Buttons = ({
 
   return (
       <div className={'Buttons'}>
-        <SuperButton disabled={maxCount} callBack={incrementCount} name={nameInc} />
-        <SuperButton disabled={minCount} callBack={resetCount} name={nameReset} />
+        <SuperButton disabled={maxCount} callBack={incrementCount}
+                     name={nameInc} />
+        {/*<SuperButton disabled={maxCount} callBack={incrementCount} */}
+        {/*             name={nameInc} />*/}
+        {/*<SuperButton disabled={maxCount} callBack={incrementCount} */}
+        {/*             name={nameInc} />*/}
+        <SuperButton disabled={minCount} callBack={resetCount}
+                     name={nameReset} />
       </div>
   )
 }
