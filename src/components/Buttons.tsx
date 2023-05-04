@@ -15,7 +15,7 @@ export const Buttons = ({
                           nameInc, nameReset, count
                         }: PropsType) => {
 
-  const maxCount = count === 5
+  const maxCount = count === 10
   const minCount = count < 1
 
   return (

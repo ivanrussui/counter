@@ -5,7 +5,7 @@ import { CounterSettings } from './components/CounterSettings';
 
 function App() {
   const [ count, setCount ] = useState(0)
-  const [ storage, setStorage ] = useState(count)
+  const [ startValue, setStartValue ] = useState(count)
 
   useEffect(() => {
     getFromLocalStorageHandler()
@@ -13,15 +13,14 @@ function App() {
 
   useEffect(() => {
     setToLocalStorageHandler()
-  }, [ storage ])
+  }, [ startValue ])
 
   const nameInc = 'INC'
   const nameReset = 'RESET'
   const nameSet = 'SET'
 
   const incrementCount = () => {
-    count < 5 && setCount(count + 1)
-    // count < 5 && setCount(count + 1)
+    count < 10 && setCount(count + 1)
   }
 
   const resetCount = () => setCount(0)
@@ -37,7 +36,7 @@ function App() {
     if (countAsString) {
       let newCount = JSON.parse(countAsString)
       setCount(newCount)
-      setStorage(newCount)
+      setStartValue(newCount)
     }
   }
 
@@ -55,6 +54,8 @@ function App() {
         <div className="Container">
           <CounterSettings nameSet={nameSet}
                            setToLocalStorageHandler={setToLocalStorageHandler}
+                           startValue={startValue}
+                           setStartValue={setStartValue}
           />
           <Counter count={count}
                    incrementCount={incrementCount}

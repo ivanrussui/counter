@@ -3,7 +3,7 @@ type PropsType = {
 }
 
 export const Monitor = ({ count }: PropsType) => {
-  const countCondition = count === 5
+  const countCondition = count === 10
   const classColors = `${countCondition ? "CounterValue + RedCounterValue" : 'CounterValue'}`
 
   return (

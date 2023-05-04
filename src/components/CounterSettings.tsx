@@ -1,5 +1,6 @@
 import React from 'react';
 import { SuperButton } from './SuperButton';
+import { Settings } from './Settings';
 
 type PropsType = {
   // count: number
@@ -8,17 +9,23 @@ type PropsType = {
   // nameInc: string
   nameSet: string
   setToLocalStorageHandler: () => void
+  startValue: number
+  setStartValue: (startValue: number) => void
 }
 
-export const CounterSettings = (props: PropsType) => {
+export const CounterSettings = ({ startValue, nameSet, setToLocalStorageHandler,
+                                  setStartValue }: PropsType) => {
   return (
       <div className={'CounterSettings'}>
-        {/*<Monitor count={props.count} />*/}
-        <SuperButton name={props.nameSet}
-                     callBack={props.setToLocalStorageHandler}
-                     // callBack={incrementCount}
+        <Settings startValue={startValue}
+                  setStartValue={setStartValue} />
+        <div className={'Buttons'}>
+          <SuperButton name={nameSet}
+                       callBack={setToLocalStorageHandler}
+              // callBack={incrementCount}
 
-        />
+          />
+        </div>
       </div>
   );
 }
