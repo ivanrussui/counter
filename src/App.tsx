@@ -47,19 +47,21 @@ function App() {
 
   return (
       <div className="App">
-        <Monitor count={count} />
-        <Buttons incrementCount={incrementCount}
-                 resetCount={resetCount}
-                 nameInc={nameInc}
-                 nameReset={nameReset}
-                 count={count}
-            // setToLocalStorageHandler={setToLocalStorageHandler}
-            // getFromLocalStorageHandler={getFromLocalStorageHandler}
-        />
-        {/*<button onClick={setToLocalStorageHandler}>setToLocalStorage</button>*/}
-        {/*<button onClick={getFromLocalStorageHandler}>getFromLocalStorage</button>*/}
-        {/*<button onClick={clearLocalStorageHandler}>clearLocalStorage</button>*/}
-        {/*<button onClick={removeItemLocalStorageHandler}>removeItemLocalStorage</button>*/}
+        <div className="Container">
+          <Monitor count={count} />
+          <Buttons incrementCount={incrementCount}
+                   resetCount={resetCount}
+                   nameInc={nameInc}
+                   nameReset={nameReset}
+                   count={count}
+              // setToLocalStorageHandler={setToLocalStorageHandler}
+              // getFromLocalStorageHandler={getFromLocalStorageHandler}
+          />
+          {/*<button onClick={setToLocalStorageHandler}>setToLocalStorage</button>*/}
+          {/*<button onClick={getFromLocalStorageHandler}>getFromLocalStorage</button>*/}
+          {/*<button onClick={clearLocalStorageHandler}>clearLocalStorage</button>*/}
+          {/*<button onClick={removeItemLocalStorageHandler}>removeItemLocalStorage</button>*/}
+        </div>
       </div>
   );
 }

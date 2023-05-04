@@ -1,21 +1,27 @@
-.App {
+.Container {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
   margin: 50px auto;
   text-align: center;
-  max-width: 600px;
+  max-width: 300px;
   background: #654ec2;
-  border: 1px solid blue;
+  border: 1px solid red;
   color: white;
   border-radius: 5px;
+  padding: 15px;
 }
 
 .Monitor {
- border: 1px solid red;
+  border: 1px solid red;
+  padding: 25px;
+  border-radius: 5px;
 }
 
 .Counter {
   color: white;
-  font-size: 20px;
-  padding: 2px;
+  font-size: 30px;
+  /*padding: 2px;*/
 }
 
 .RedCounter {
@@ -26,9 +32,10 @@
 .Buttons {
   display: flex;
   justify-content: center;
-  gap: 5px;
-  margin: 20px 0;
-
+  gap: 10px;
+  /*margin: 20px 0;*/
+  border: 1px solid red;
+  padding: 15px;
 }
 
 .Button {
