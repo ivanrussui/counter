@@ -24,16 +24,21 @@ function App() {
     const resetCount = () => setCount(startValue)
 
     const setToLocalStorageHandler = () => {
-        localStorage.setItem('key', JSON.stringify(startValue))
+        localStorage.setItem('start', JSON.stringify(startValue))
+        localStorage.setItem('max', JSON.stringify(maxValue))
         setCount(startValue)
+        setMaxValue(maxValue)
     }
 
     const getFromLocalStorageHandler = () => {
-        let countAsString = localStorage.getItem('key')
-        if (countAsString) {
+        let countAsString = localStorage.getItem('start')
+        let countAsStringMax = localStorage.getItem('max')
+        if (countAsString && countAsStringMax) {
             let newCount = JSON.parse(countAsString)
+            let newCountMax = JSON.parse(countAsStringMax)
             setCount(newCount)
             setStartValue(newCount)
+            setMaxValue(newCountMax)
         }
     }
 
