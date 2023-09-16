@@ -1,33 +1,23 @@
-import { SuperButton } from './SuperButton';
+import {SuperButton} from './SuperButton';
 
 type PropsType = {
-  incrementCount: () => void
-  resetCount: () => void
-  nameInc: string
-  nameReset: string
-  count: number
-  // setToLocalStorageHandler: () => void
-  // getFromLocalStorageHandler: () => void
+    incrementCount: () => void
+    resetCount: () => void
+    nameInc: string
+    nameReset: string
+    count: number
+    maxValue: number
+    minValue: number
 }
 
-export const Buttons = ({
-                          incrementCount, resetCount,
-                          nameInc, nameReset, count
-                        }: PropsType) => {
+export const Buttons = ({incrementCount, resetCount, nameInc, nameReset, count, ...restProp}: PropsType) => {
+    const maxCount = count === restProp.maxValue
+    const minCount = count < restProp.minValue
 
-  const maxCount = count === 10
-  const minCount = count < 1
-
-  return (
-      <div className={'Buttons'}>
-        <SuperButton disabled={maxCount} callBack={incrementCount}
-                     name={nameInc} />
-        {/*<SuperButton disabled={maxCount} callBack={incrementCount} */}
-        {/*             name={nameInc} />*/}
-        {/*<SuperButton disabled={maxCount} callBack={incrementCount} */}
-        {/*             name={nameInc} />*/}
-        <SuperButton disabled={minCount} callBack={resetCount}
-                     name={nameReset} />
-      </div>
-  )
+    return (
+        <div className={'Buttons'}>
+            <SuperButton disabled={maxCount} callBack={incrementCount} name={nameInc}/>
+            <SuperButton disabled={minCount} callBack={resetCount} name={nameReset}/>
+        </div>
+    )
 }
