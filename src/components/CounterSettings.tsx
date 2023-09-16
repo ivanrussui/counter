@@ -12,12 +12,15 @@ type PropsType = {
 }
 
 export const CounterSettings = ({startValue, nameSet, setToLocalStorageHandler, setStartValue, ...restProp}: PropsType) => {
+
+    const disableSet = startValue >= restProp.maxValue || startValue < 0
+
     return (
         <div className={'CounterSettings'}>
             <Settings startValue={startValue} setStartValue={setStartValue}
-                      maxValue={restProp.maxValue} setMaxValue={restProp.setMaxValue} />
+                      maxValue={restProp.maxValue} setMaxValue={restProp.setMaxValue} disableSet={disableSet} />
             <div className={'Buttons'}>
-                <SuperButton name={nameSet} callBack={setToLocalStorageHandler}/>
+                <SuperButton disabled={disableSet} name={nameSet} callBack={setToLocalStorageHandler}/>
             </div>
         </div>
     );

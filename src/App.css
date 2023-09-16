@@ -79,11 +79,18 @@
   max-width: 100px;
 }
 
-input {
+.InputValue {
   text-align: center;
   max-width: 130px;
 }
-input:focus {
+
+.InputValue:focus {
   border-color: red;
   outline: none;
+}
+
+.RedInputValue {
+  background-color: red;
+  opacity: .9;
+  color: white;
 }

@@ -6,13 +6,14 @@ type PropsType = {
     nameInc: string
     nameReset: string
     count: number
+    startValue: number
     maxValue: number
     minValue: number
 }
 
 export const Buttons = ({incrementCount, resetCount, nameInc, nameReset, count, ...restProp}: PropsType) => {
     const maxCount = count === restProp.maxValue
-    const minCount = count < restProp.minValue
+    const minCount = count <= restProp.startValue
 
     return (
         <div className={'Buttons'}>

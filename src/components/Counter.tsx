@@ -22,6 +22,7 @@ export const Counter = (props: PropsType) => {
                      nameInc={props.nameInc}
                      nameReset={props.nameReset}
                      count={props.count}
+                     startValue={props.startValue}
                      maxValue={props.maxValue}
                      minValue={props.minValue}
             />
