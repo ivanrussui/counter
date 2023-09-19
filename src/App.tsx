@@ -8,10 +8,24 @@ function App() {
     const [maxValue, setMaxValue] = useState(10)
     const [minValue, setMinValue] = useState(startValue)
     const [count, setCount] = useState(startValue)
+    const [isButtonDisabled, setIsButtonDisabled] = useState(true);
 
     useEffect(() => {
         getFromLocalStorageHandler()
     }, [])
+
+    // const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    //     const newValue = event.target.value;
+    //     setStartValue(+newValue);
+    //     setMaxValue(+newValue);
+    //
+    //     // Если значение инпута не пустое, разблокируем кнопку
+    //     if (newValue.trim() !== '') {
+    //         setIsButtonDisabled(false);
+    //     } else {
+    //         setIsButtonDisabled(true);
+    //     }
+    // };
 
     const nameInc = 'INC'
     const nameReset = 'RESET'
@@ -28,6 +42,8 @@ function App() {
         localStorage.setItem('max', JSON.stringify(maxValue))
         setCount(startValue)
         setMaxValue(maxValue)
+        setIsButtonDisabled(true)
+
     }
 
     const getFromLocalStorageHandler = () => {
@@ -51,6 +67,9 @@ function App() {
                                  setStartValue={setStartValue}
                                  maxValue={maxValue}
                                  setMaxValue={setMaxValue}
+                                 isButtonDisabled={isButtonDisabled}
+                                 setIsButtonDisabled={setIsButtonDisabled}
+                                 // handleInputChange={handleInputChange}
                 />
                 <Counter count={count}
                          startValue={startValue}
